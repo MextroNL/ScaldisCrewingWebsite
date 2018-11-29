@@ -38,32 +38,28 @@
         </div>
     <!--Vacatures Block-->
         <div class="block3">
-
+            <?php
+            $catquery = new WP_Query( 'cat=3&posts_per_page=2' );
+            while($catquery->have_posts()) : $catquery->the_post();
+                ?>
+                <!--Post Content Start-->
+                <div class="row featured-post-block" id="post-<?php the_ID(); ?>">
+                    <div class="col-lg-12">
+                        <!-- Title -->
+                        <a href="<?php the_permalink(); ?>"> <h2 class="post-title"><?php the_title(); ?></h2></a><br>
+                        <!-- Subtitle -->
+                        <h5 class="post-subtitle">Posted by: <?php the_author() ?> - <?php echo get_the_date(); ?></h5>
+                        <!-- Content -->
+                        <div class="post-content"><?php echo wp_trim_words( get_the_content(), 150, '...' );?></div>
+                        <a href="<?php the_permalink(); ?>#post-scroll" id="read-more-index" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <!--Post Content End-->
+            <?php endwhile; ?>
+            <?php wp_reset_query(); // reset the query ?>
         </div>
+<!--Container End-->
     </div>
 
-
-    <h1 class="page-title"><?php get_the_title(); ?></h1>
-    <!-- Featured Posts loop -->
-    <?php
-    $catquery = new WP_Query( 'cat=4&posts_per_page=1' );
-    while($catquery->have_posts()) : $catquery->the_post();
-        ?>
-        <!--Post Content Start-->
-        <div class="row featured-post-block">
-            <div class="col-lg-12">
-                <!-- Title -->
-                <h2 class="featured-post-title"><?php the_title(); ?></h2>
-                <!-- Content -->
-                <div class="featured-post-content"><?php the_content();?></div>
-            </div>
-        </div>
-        <!--Post Content End-->
-    <?php endwhile; ?>
-    <?php wp_reset_query(); // reset the query ?>
-<!---->
-<!--    <div class="yt-video">-->
-<!--        <iframe id="yt-video" src="https://www.youtube-nocookie.com/embed/PnaqJTnmvBM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--    </div>-->
 
 <?php get_footer(); ?>
