@@ -19,15 +19,15 @@ show_admin_bar(true);
 //Style Prepare
 wp_enqueue_style('style', get_stylesheet_uri());
 
+//Title
+add_theme_support( 'title-tag' );
+
 //Register Left and Right navbars
 function register_menus() {
-    register_nav_menus(
-        array(
-            'main-menu' => __( 'Main Menu' )
-        )
-    );
+    register_nav_menu('main-menu',__( 'Main Menu' ));
 }
 add_action( 'init', 'register_menus' );
+
 
 //      Footer Widgets
 register_sidebar( array(

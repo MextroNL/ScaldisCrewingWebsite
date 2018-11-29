@@ -8,7 +8,22 @@
 
 <?php get_header(); ?>
 
+    <div class="container"
 
+
+        <h1 class="page-title"><?php the_title(); ?></h1>
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+
+        the_content();
+    endwhile; else: ?>
+        <p>Sorry, no posts matched your criteria.</p>
+    <?php endif; ?>
+
+
+
+
+
+    <h1 class="page-title"><?php get_the_title(); ?></h1>
     <!-- Featured Posts loop -->
     <?php
     $catquery = new WP_Query( 'cat=4&posts_per_page=1' );

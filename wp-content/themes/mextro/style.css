@@ -13,8 +13,11 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer');
-@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Lobster|Pacifico|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Abel|Allerta+Stencil|Raleway');
+
+/*  font-family: 'Raleway', sans-serif;         */
+/*  font-family: 'Allerta Stencil', sans-serif; */
+/*  font-family: 'Abel', sans-serif;            */
 
 body{
     background-color: #fff;
@@ -24,60 +27,77 @@ body{
     padding: 0px;
     overflow-x: hidden;
 }
+
+/*-------------------------------------------------------------------------------------------*/
+/*Header Styling*/
 .navbar{
     height: 6%;
     background-color: #fff;
     position: relative;
+    width: 90%;
+    margin: auto;
 }
-.main-nav{
+
+/*.main-nav{*/
+    /*!*display: block;*!*/
+    /*!*float: left;*!*/
+/*}*/
+
+/*.main-nav ul{*/
+    /*list-style-type: none;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*display: flex;*/
+
+/*}*/
+
+/*.main-nav ul li{*/
+    /*padding: 10px;*/
     /*display: block;*/
-    /*float: left;*/
-}
-.main-nav ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+    /*font-family: 'Abel', sans-serif;*/
 
-}
-.main-nav ul li{
-    padding: 10px;
-    display: block;
-    font-family: 'IM FELL Great Primer';
+/*}*/
 
-}
 .main-nav ul li a{
     text-decoration: none;
     color: #5D7F9F;
-    font-size: 1.5vw;
-    /*background-color: aqua;*/
-    /*padding-right: 25px;*/
+    font-size: 1.2vw;
+    font-family: 'Abel', sans-serif;
 }
 
-.bloginfo{
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.logo-wrapper{
+    margin: 10px auto;
+    display: block;
+}
+
+.custom-logo{
+    margin: 10px auto;
+    display: block;
+    height: auto;
+    width: 25%;
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
 }
 
 .current-menu-item a{
     color: #d96300;
 }
-.navbar-logo{
-    display: block;
-    margin: auto;
-}
-
-.navbar-logo img{
-    width: 350px;
-    height: auto;
-}
 
 #headerimg{
     width: 100%;
     height: 100%;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*Body Styling*/
+
+.page-title{
+    text-align: center;
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 3vw;
+    font-family: 'Abel', sans-serif;
 }
 
 /*Featured Post*/
@@ -98,22 +118,10 @@ body{
     text-align: center;
 }
 
-.video-wrapper{
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-}
 
-#yt-video{
-    top: 0;
-    left: 0;
-    margin: auto;
-    width: 100%;
-    height: 100%;
 
-}
-
+/*-------------------------------------------------------------------------------------------*/
+/*Footer Styling*/
 .footer-block{
     height: 10%;
     background-color: #5D7F9F;
@@ -121,7 +129,7 @@ body{
     padding-bottom: 70px;
 
 }
-/*Media Query*/
+/*Optional Media Query*/
 
 /*Tablet*/
 @media screen and (max-width: 800px) {
