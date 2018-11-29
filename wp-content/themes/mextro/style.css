@@ -14,10 +14,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
 @import url('https://fonts.googleapis.com/css?family=Abel|Allerta+Stencil|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700');
 
 /*  font-family: 'Raleway', sans-serif;         */
+    /*Raleway:300,400,500,700*/
 /*  font-family: 'Allerta Stencil', sans-serif; */
 /*  font-family: 'Abel', sans-serif;            */
+
 
 body{
     background-color: #fff;
@@ -36,6 +39,53 @@ body{
     position: relative;
     width: 90%;
     margin: auto;
+}
+
+.navbar-toggler{
+    margin: auto;
+    color: #5d7f9f;
+    font-size: 2vmax;
+    padding: 6px;
+    text-align: center;
+    border: 2px solid #5d7f9f;
+    border-radius: 17px;
+    outline: none;
+
+}
+[data-toggle="collapse"][aria-expanded="true"] > .fa-bars
+{
+    transition: transform .2s ease-in-out;
+    -webkit-transform: rotate(90deg);
+    -moz-transform:    rotate(90deg);
+    -ms-transform:     rotate(90deg);
+    -o-transform:      rotate(90deg);
+    transform:         rotate(90deg);
+}
+
+[data-toggle="collapse"][aria-expanded="false"] > .fa-bars
+{
+    transition: transform .2s ease-in-out;
+    -webkit-transform: rotate(0deg);
+    -moz-transform:    rotate(0deg);
+    -ms-transform:     rotate(0deg);
+    -o-transform:      rotate(0deg);
+    transform:         rotate(0deg);
+}
+
+.navbar-toggler:focus{
+
+}
+
+.navbar-toggler:disabled{
+
+}
+
+.hamburger-icon{
+    color: #5D7F9F;
+}
+
+.hamburger-icon:hover{
+    color: #3C657F;
 }
 
 /*.main-nav{*/
@@ -61,7 +111,7 @@ body{
 .main-nav ul li a{
     text-decoration: none;
     color: #5D7F9F;
-    font-size: 1.2vw;
+    font-size: 1.5vmax;
     font-family: 'Abel', sans-serif;
 }
 
@@ -74,7 +124,7 @@ body{
     margin: 10px auto;
     display: block;
     height: auto;
-    width: 25%;
+    width: 30vmax;
     /*position: absolute;*/
     /*left: 50%;*/
     /*transform: translate(-50%, -50%);*/
@@ -92,12 +142,88 @@ body{
 /*-------------------------------------------------------------------------------------------*/
 /*Body Styling*/
 
-.page-title{
+.container{
+    margin-top: 2%;
+}
+.block1{
+    border-bottom: 1px solid #7C8F8D;
+    padding: 0 0 5% 0;
+}
+
+.block2{
+    border-bottom: 1px solid #7C8F8D;
+    padding: 5% 0 5% 0;
+}
+
+.block1content h2{
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 2.5vmax;
+    font-family: 'Abel', sans-serif;
+}
+
+.block1content p{
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 1.1vmax;
+    font-family: 'Raleway', sans-serif;
+}
+.pagetitle{
     text-align: center;
     text-decoration: none;
     color: #5D7F9F;
-    font-size: 3vw;
+    font-size: 3.5vmax;
     font-family: 'Abel', sans-serif;
+}
+
+/*Index Widget Blocks*/
+
+.index-widget{
+    background-color: #5D7F9F;
+    color: #FFF;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 5vmax;
+    text-align: center;
+    padding: 15px;
+    max-width: 18vmax;
+    min-width: 15vmax;
+    margin: 2% auto 2% auto;
+}
+
+.index-widget h3{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: 2vmax;
+}
+
+.index-widget p{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 1vmax;
+}
+
+.index-widget-icon{
+    font-size: 7vw;
+    text-align: center;
+    text-shadow: 10px 10px 10px #3C657F;
+}
+
+.read-more{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    color: #5D7F9F;
+    border-radius: 1.2vmax;
+    text-decoration: none;
+    font-size: 1.4vmax;
+}
+
+.read-more:hover{
+    text-decoration: none;
+    background-color: #3C657F;
+    color: #fff;
 }
 
 /*Featured Post*/

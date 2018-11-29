@@ -8,19 +8,39 @@
 
 <?php get_header(); ?>
 
-    <div class="container"
+    <div class="container">
+        <div class="block1">
+            <h1 class="pagetitle"><?php the_title(); ?></h1>
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
+                <div class="block1content"><?php the_content();?></div>
+            <?php endwhile;
+            else:?>
+                <p>Sorry, no posts matched your criteria.</p>
+            <?php endif; ?>
+        </div>
+        <div class="block2">
+            <div class="row footer-widget-wrapper">
+                <?php
+                if(is_active_sidebar('index-widget-1')){?>
+                    <div class="col-sm-4"><?php dynamic_sidebar('index-widget-1');?></div><?php
+                }
 
+                if(is_active_sidebar('index-widget-2')){?>
+                    <div class="col-sm-4"><?php dynamic_sidebar('index-widget-2');?></div><?php
+                }
 
-        <h1 class="page-title"><?php the_title(); ?></h1>
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+                if(is_active_sidebar('index-widget-3')){?>
+                    <div class="col-sm-4"><?php dynamic_sidebar('index-widget-3');?></div><?php
+                }
 
-        the_content();
-    endwhile; else: ?>
-        <p>Sorry, no posts matched your criteria.</p>
-    <?php endif; ?>
+                ?>
+            </div>
+        </div>
+    <!--Vacatures Block-->
+        <div class="block3">
 
-
-
+        </div>
+    </div>
 
 
     <h1 class="page-title"><?php get_the_title(); ?></h1>
