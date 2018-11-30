@@ -23,6 +23,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 body{
+    font-family: Raleway;
     background-color: #fff;
     width: 100%;
     height: 100%;
@@ -152,15 +153,21 @@ button:active{
 .container{
     margin-top: 2%;
 }
+
+.pagetitle{
+    text-align: center;
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 3.5vmax;
+    font-family: 'Abel', sans-serif;
+}
+
+/*Index Block 1*/
 .block1{
     border-bottom: 1px solid #7C8F8D;
     padding: 0 0 5% 0;
 }
 
-.block2{
-    border-bottom: 1px solid #7C8F8D;
-    padding: 5% 0 5% 0;
-}
 
 .block1content h2{
     text-decoration: none;
@@ -175,15 +182,14 @@ button:active{
     font-size: 1.1vmax;
     font-family: 'Raleway', sans-serif;
 }
-.pagetitle{
-    text-align: center;
-    text-decoration: none;
-    color: #5D7F9F;
-    font-size: 3.5vmax;
-    font-family: 'Abel', sans-serif;
-}
 
-/*Index Widget Blocks*/
+
+/*Index Block 2*/
+
+.block2{
+    border-bottom: 1px solid #7C8F8D;
+    padding: 5% 0 5% 0;
+}
 
 .index-widget{
     background-color: #5D7F9F;
@@ -208,7 +214,7 @@ button:active{
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     text-align: left;
-    font-size: 1vmax;
+    font-size: 0.8vmax;
 }
 
 .index-widget-icon{
@@ -219,12 +225,14 @@ button:active{
 
 .read-more{
     margin-top: 20px;
-    padding: 10px;
     background-color: #fff;
     color: #5D7F9F;
-    border-radius: 1.2vmax;
     text-decoration: none;
-    font-size: 1.4vmax;
+    font-size: 1vmax;
+
+    line-height: 2vmax;
+    padding: 0.5vmax;
+    border-radius: 0.8vmax;
 }
 
 .read-more:hover{
@@ -233,10 +241,112 @@ button:active{
     color: #fff;
 }
 
+/*Index Block 3*/
+
+.block2{
+    padding: 5% 0 5% 0;
+}
+
+.cat-name{
+    text-align: center;
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 2.8vmax;
+    font-family: 'Abel', sans-serif;
+}
+
+.cat-description{
+    text-align: center;
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 1.8vmax;
+    font-family: 'Abel', sans-serif;
+}
+
+/*Post Style*/
+.post-block{
+    margin-bottom: 2vmax;
+}
+
+.post-title{
+    color: #5D7F9F;
+    font-family: Raleway;
+    font-weight: 700;
+    font-size: 1.8vmax;
+    display: inline;
+}
+.post-title:hover{
+    text-decoration: underline;
+}
+.post-subtitle{
+    color: #5D7F9F;
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 1.2vmax;
+}
+
+.post-content{
+    color: #5D7F9F;
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 1.2vmax;
+    width: 80%;
+    display: inline-block;
+}
+
+.perma-button{
+    display: block;
+    text-align: center;
+    background-color: #5D7F9F;
+    color: #fff;
+    font-family: Raleway;
+    font-weight: 400;
+    font-size: 1vmax;
+    float: right;
+    line-height: 2vmax;
+    padding: 0.5vmax;
+    border-radius: 1vmax;
+}
+.perma-button:hover{
+    text-decoration: none;
+    background-color: #3C657F;
+    color: #fff;
+}
+
+
+/*Post Phone*/
+@media screen and (max-width: 480px) {
+    .post-block{
+        margin-bottom: 6vmax!important;
+    }
+    .post-title{
+        text-align: center!important;
+        display: block!important;
+    }
+    .post-subtitle{
+        text-align: center!important;
+        display: block!important;
+    }
+    .post-content{
+        display: block!important;
+        margin: auto!important;
+        width: 90%!important;
+    }
+    .perma-button{
+        margin: 1vmax auto;
+        float: none!important;
+        width: 9vmax!important;
+    }
+}
+
+
+
+
+
+
 /*Featured Post*/
 .featured-post-block{
     margin-top: 20px;
-    width: 100%;
 }
 
 .featured-post-title{
@@ -271,6 +381,8 @@ button:active{
 
 /*Phone*/
 @media screen and (max-width: 480px) {
+    .post-title{
 
+    }
 }
 

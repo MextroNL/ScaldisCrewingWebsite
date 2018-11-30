@@ -40,22 +40,22 @@
         <div class="block3">
             <?php
                 $category_id = 3;
-                echo get_cat_name( $category_id );
-                echo category_description( $category_id );
+                echo '<div class="cat-name">' . get_cat_name( $category_id ) . '</div>';
+                echo '<div class="cat-description">' . category_description( $category_id ) . '</div>';
 
             $catquery = new WP_Query( 'cat=$category_id&posts_per_page=2' );
             while($catquery->have_posts()) : $catquery->the_post();
                 ?>
                 <!--Post Content Start-->
-                <div class="row featured-post-block" id="post-<?php the_ID(); ?>">
+                <div class="post-block" id="post-<?php the_ID(); ?>">
                     <div class="col-lg-12">
                         <!-- Title -->
-                        <a href="<?php the_permalink(); ?>"> <h2 class="post-title"><?php the_title(); ?></h2></a><br>
+                        <a href="<?php the_permalink(); ?>"> <h2 class="post-title"><?php the_title(); ?></h2></a>
                         <!-- Subtitle -->
-                        <h5 class="post-subtitle">Posted by: <?php the_author() ?> - <?php echo get_the_date(); ?></h5>
+                        <h5 class="post-subtitle"><?php echo get_the_date(); ?></h5>
                         <!-- Content -->
                         <div class="post-content"><?php echo wp_trim_words( get_the_content(), 150, '...' );?></div>
-                        <a href="<?php the_permalink(); ?>#post-scroll" id="read-more-index" class="read-more">Read More</a>
+                        <a href="<?php the_permalink(); ?>#post-scroll" class="perma-button">Bekijk Vacature</a>
                     </div>
                 </div>
                 <!--Post Content End-->
