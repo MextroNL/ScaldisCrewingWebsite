@@ -39,7 +39,11 @@
     <!--Vacatures Block-->
         <div class="block3">
             <?php
-            $catquery = new WP_Query( 'cat=3&posts_per_page=2' );
+                $category_id = 3;
+                echo get_cat_name( $category_id );
+                echo category_description( $category_id );
+
+            $catquery = new WP_Query( 'cat=$category_id&posts_per_page=2' );
             while($catquery->have_posts()) : $catquery->the_post();
                 ?>
                 <!--Post Content Start-->
