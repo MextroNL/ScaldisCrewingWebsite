@@ -10,9 +10,9 @@
 
     <div class="container">
         <div class="block1">
-            <h1 class="pagetitle"><?php the_title(); ?></h1>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
                 <div class="block1content"><?php the_content();?></div>
+                <a href="" class="perma-button">Lees meer</a>
             <?php endwhile;
             else:?>
                 <p>Sorry, no posts matched your criteria.</p>

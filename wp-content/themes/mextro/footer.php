@@ -16,6 +16,9 @@
 
         ?>
     </div>
+    <div class="copyrightbottom">
+        <a href=""><?php echo bloginfo('name') . " &copy; " . date("Y") . " - Made by Mextro";?></a>
+    </div>
 </footer>
 <?php wp_footer(); ?>
 </body>

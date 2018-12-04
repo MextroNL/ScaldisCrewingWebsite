@@ -22,11 +22,14 @@ wp_enqueue_style('style', get_stylesheet_uri());
 //Title
 add_theme_support( 'title-tag' );
 
-//Register Left and Right navbars
+//Register Navbar
 function register_menus() {
     register_nav_menu('main-menu',__( 'Main Menu' ));
 }
 add_action( 'init', 'register_menus' );
+
+// Register Custom Navigation Walker
+require_once get_template_directory() . '/resources/class-wp-bootstrap-navwalker.php';
 
 //      Index Widgets
 register_sidebar( array(
@@ -63,7 +66,7 @@ register_sidebar( array(
     'name' => 'Footer Widget 1',
     'id' => 'footer-widget-1',
     'description' => 'Appears in the footer area',
-    'before_widget' => '<div class="col-lg-4 footer-1 footer-widget">',
+    'before_widget' => '<div class="col-4 footer-1 footer-widget">',
     'after_widget' => '</div>',
     'before_title' => '<h3 class="footer-title">',
     'after_title' => '</h3>',
@@ -72,7 +75,7 @@ register_sidebar( array(
     'name' => 'Footer Widget 2',
     'id' => 'footer-widget-2',
     'description' => 'Appears in the footer area',
-    'before_widget' => '<div class="col-lg-4 footer-2 footer-widget">',
+    'before_widget' => '<div class="col-4 footer-2 footer-widget">',
     'after_widget' => '</div>',
     'before_title' => '<h3 class="footer-title">',
     'after_title' => '</h3>',
@@ -81,7 +84,7 @@ register_sidebar( array(
     'name' => 'Footer Widget 3',
     'id' => 'footer-widget-3',
     'description' => 'Appears in the footer area',
-    'before_widget' => '<div class="col-lg-4 footer-3 footer-widget">',
+    'before_widget' => '<div class="col-4 footer-3 footer-widget">',
     'after_widget' => '</div>',
     'before_title' => '<h3 class="footer-title">',
     'after_title' => '</h3>',
