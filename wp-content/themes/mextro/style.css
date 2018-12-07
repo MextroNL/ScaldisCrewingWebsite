@@ -471,24 +471,16 @@ button:active{
     opacity: 1;
 }
 
+/*Post Page (Vacature)*/
 
-
-/*Optional Media Query*/
-
-/*Tablet*/
-@media screen and (max-width: 800px) {
-
+#search_posts{
+    border: 2px solid #5D7F9F;
+    border-radius: 20vmax;
+    width: 80%;
+    padding: 1.2vmax 1vmax 1.2vmax 1vmax;
+    margin: auto;
+    display: block;
 }
-
-/*Phone*/
-@media screen and (max-width: 480px) {
-    .post-title{
-
-    }
-}
-
-
-
 #page-nav{
     display: flex;
     width: 30%;
@@ -508,8 +500,20 @@ button:active{
     margin: auto;
 }
 
-#prev-button{
+
+/*Optional Media Query*/
+
+/*Tablet*/
+@media screen and (max-width: 800px) {
+
 }
 
-#next-button{
+/*Phone*/
+@media screen and (max-width: 480px) {
+    .post-title{
+
+    }
 }
+
+
+

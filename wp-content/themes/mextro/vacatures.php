@@ -7,35 +7,87 @@
 ?>
 
 <?php get_header(); ?>
-
     <div class="container">
-        <?php get_search_form(); ?>
-        <form name="frm" class="db_posts_per_page_form" method="post" action="">
-            <label for="db_posts_per_page">Vacatures per pagina</label>
-            <select onchange="document.frm.submit()" name="db_posts_per_page" id="db_posts_per_page">
-                <option value="4" <?php selected(4,$_REQUEST['db_posts_per_page']);?>>4</option>
-                <option value="8" <?php selected(8,$_REQUEST['db_posts_per_page']);?>>8</option>
-                <option value="16" <?php selected(16,$_REQUEST['db_posts_per_page']);?>>16</option>
-                <option value="all" <?php selected(" ",$_REQUEST['db_posts_per_page']);?>>Alle</option>
+
+        <form name="search" class="search_input" method="post" action="#pagetitle">
+            <!--Searchbar-->
+            <input onchange="document.search.submit()" name="search" placeholder="Zoek naar vacatures" <?php if(isset($_REQUEST['search'])){echo 'value="' . $_REQUEST['search'] . '"';}?> id="search_posts">
+            <button type="submit" name="submit" id="searchicon">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <form name="filters" class="posts_per_page_form" method="get" action="<?php the_permalink();?>/#pagetitle">
+        <!--Post per page-->
+            <label for="posts_per_page">Vacatures per pagina</label>
+            <select onchange="document.filters.submit()" name="posts_per_page" id="posts_per_page">
+                <option value="4" <?php selected(4,$_REQUEST['posts_per_page']);?>>4</option>
+                <option value="8" <?php selected(8,$_REQUEST['posts_per_page']);?>>8</option>
+                <option value="16" <?php selected(16,$_REQUEST['posts_per_page']);?>>16</option>
+                <option value="-1" <?php selected(-1,$_REQUEST['posts_per_page']);?>>Alle</option>
+            </select>
+        <!--Beroep Filter-->
+            <label for="beroep_filter">Functie</label>
+            <select onchange="document.filters.submit()" name="beroep_filter" id="beroep_filter">
+                <option value="-1" <?php selected(-1,$_REQUEST['beroep_filter']);?>>Alle</option>
+                <option value="scheepsjongen" <?php selected('scheepsjongen',$_REQUEST['beroep_filter']);?>>Scheepsjongen</option>
+                <option value="matroos" <?php selected('matroos',$_REQUEST['beroep_filter']);?>>Matroos</option>
+                <option value="kapitein" <?php selected('kapitein',$_REQUEST['beroep_filter']);?>>Kapitein</option>
             </select>
         </form>
+
+
+
+
+
         <?php
-        if( isset($_REQUEST['db_posts_per_page'] ))
-        $posts_per_page = $_REQUEST['db_posts_per_page'];
-        else
-        $posts_per_page = 4; // default value
+        //Search
+
+        $clean_code = preg_replace('/[^a-zA-Z0-9 ]/', '', $_REQUEST['search']);
+
+        $nospace = rtrim($clean_code);
+
+        $searchwords = preg_replace('/\s+/', '+', $nospace);
+
+
+//        if(isset($_REQUEST['search']) && $a = 1){
+//        echo 'Zoekresultaten voor: "' . $nospace . '"<br>';
+//        }
+
+
+
+
+
+        //Post Per Page Loop
+        if( isset($_REQUEST['posts_per_page'] )) {
+            $posts_per_page = $_REQUEST['posts_per_page'];
+        }
+        elseif( isset($_REQUEST['search'])){
+            $posts_per_page = -1; // Search Results
+        }
+        else {
+            $posts_per_page = 4; // default value
+        }
+
+        //Beroep Filter Loop
+        if( isset($_REQUEST['beroep_filter'] )) {
+            $beroep_filter = $_REQUEST['beroep_filter'];
+        }
+        else {
+            $beroep_filter = 4; // default value
+        }
 
 
         ?>
 
-
-
-<!--Pagination-->
+<!--Loop-->
         <?php
+
         // Define custom query parameters
         $custom_query_args = array(
+            's' => $searchwords,
             'posts_per_page' => $posts_per_page,
             'cat' => 3
+
         );
 
         // Get current page and append to custom query parameters array
@@ -51,6 +103,11 @@
 
         // Output custom query loop
         if ( $custom_query->have_posts() ) :
+            $totalPosts = $custom_query->found_posts; //Shows Total Posts
+            if(!empty($_REQUEST['search'])){
+                echo 'Er zijn ' . $totalPosts . ' zoekresultaten gevonden voor: "' . $nospace . '".';
+            }
+
         while ( $custom_query->have_posts() ) :
         $custom_query->the_post();?>
             <div class="post-block" id="post-<?php the_ID(); ?>">
@@ -60,12 +117,17 @@
                     <!-- Subtitle -->
                     <h5 class="post-subtitle"><?php echo get_the_date(); ?></h5>
                     <!-- Content -->
-                    <div class="post-content"><?php echo wp_trim_words( get_the_content(), 150, '...' );?></div>
+                    <div class="post-content"><?php echo wp_trim_words( get_the_content(), 36, '...' );?></div>
                     <a href="<?php the_permalink(); ?>#post-scroll" class="perma-button">Bekijk Vacature</a>
                 </div>
             </div>
         <?php
         endwhile;
+            $totalPosts = $custom_query->found_posts; //Shows Total Posts
+        else:
+            echo 'Geen zoekresultaten gevonden voor: "' . $nospace . '"';
+
+
         endif;
         // Reset postdata
         wp_reset_postdata();
@@ -73,13 +135,36 @@
         // Custom query loop pagination
         echo '<nav><div id="page-nav">';
         previous_posts_link( '<i class="fas fa-chevron-circle-left" id="prev-button"></i>' );
-        echo '<h6 id="page-number">' . $custom_query_args['paged'] . '</h6>';
+        if ($posts_per_page > 0 && $totalPosts > $posts_per_page){
+            echo '<h6 id="page-number">' . $custom_query_args['paged'] . '</h6>';
+        }
         next_posts_link( '<i class="fas fa-chevron-circle-right" id="next-button"></i>', $custom_query->max_num_pages );
         echo '</div></nav>';
+
         // Reset main query object
         $wp_query = NULL;
         $wp_query = $temp_query;
+
+
+
+
+        //Query Vars
+        //            $showedPosts = $custom_query->post_count; //Shows shown posts on a page
+        //            $_GET['shown_post_nr'] = $showedPosts;
+        //                echo $_GET['shown_post_nr'] . '<br>';
+        //
+        //            $pageNumber = $custom_query_args['paged'];
+        //            $postNumber = $pageNumber * $showedPosts;
+        //            echo 'Post Count' . $showedPosts . '<br>';
+        //            echo 'Found Posts' . $countPosts . '<br>';
+        //
+        //            echo $postNumber . ' van de ' . $countPosts . ' vacatures getoond';
+
+        //if found posts < post per page ^-^
+        //pagenumber*showedposts
+
         ?>
     </div>
+
 
 <?php get_footer(); ?>

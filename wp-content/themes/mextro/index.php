@@ -54,7 +54,7 @@
                         <!-- Subtitle -->
                         <h5 class="post-subtitle"><?php echo get_the_date(); ?></h5>
                         <!-- Content -->
-                        <div class="post-content"><?php echo wp_trim_words( get_the_content(), 150, '...' );?></div>
+                        <div class="post-content"><?php echo wp_trim_words( get_the_content(), 36, '...' );?></div>
                         <a href="<?php the_permalink(); ?>#post-scroll" class="perma-button">Bekijk Vacature</a>
                     </div>
                 </div>

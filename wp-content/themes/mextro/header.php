@@ -1,3 +1,7 @@
+<?php
+//    global $wp_session;
+//    $wp_session['PostperPage'] = $_REQUEST['db_posts_per_page'];
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -58,4 +62,4 @@
         <img id="headerimg" src="<?php header_image(); ?>" alt="headerimg" />
     </div>
     <!--Header Image End-->
-    <h1 class="pagetitle"><?php the_title(); ?></h1>
+    <h1 class="pagetitle" id="pagetitle"><?php the_title(); ?></h1>
