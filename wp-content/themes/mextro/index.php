@@ -50,7 +50,7 @@
                 <div class="post-block" id="post-<?php the_ID(); ?>">
                     <div class="col-lg-12">
                         <!-- Title -->
-                        <a href="<?php the_permalink(); ?>"> <h2 class="post-title"><?php the_title(); ?></h2></a>
+                        <a href="<?php the_permalink(); ?>"> <h3 class="post-title"><?php the_title(); ?></h3></a>
                         <!-- Subtitle -->
                         <h5 class="post-subtitle"><?php echo get_the_date(); ?></h5>
                         <!-- Content -->

@@ -62,4 +62,4 @@
         <img id="headerimg" src="<?php header_image(); ?>" alt="headerimg" />
     </div>
     <!--Header Image End-->
-    <h1 class="pagetitle" id="pagetitle"><?php the_title(); ?></h1>
+<!--    <h1 class="pagetitle" id="pagetitle">--><?php //the_title(); ?><!--</h1>-->

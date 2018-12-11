@@ -473,14 +473,177 @@ button:active{
 
 /*Post Page (Vacature)*/
 
-#search_posts{
-    border: 2px solid #5D7F9F;
-    border-radius: 20vmax;
-    width: 80%;
-    padding: 1.2vmax 1vmax 1.2vmax 1vmax;
+/*Post Filters*/
+/*Searchbar*/
+.search_input{/*Form*/
+    display:flex;
+    flex-direction:row;
     margin: auto;
-    display: block;
+    width: 80%;
+    padding: 0.5vmax 1vmax 0.5vmax 1.5vmax;
+    border: 3px solid #5D7F9F;
+    border-radius: 20vmax;
 }
+#search_posts{/*Input*/
+    display: block;
+    border: none;
+    flex-grow:2;
+    background: none;
+    font-size: 1.5vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #5D7F9F;
+    opacity: 1;
+    outline: none;
+}
+#search_posts::placeholder{
+    font-size: 1.5vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #5D7F9F;
+    opacity: 0.7;
+}
+#searchicon{/*Button*/
+    float: right;
+    text-align: right;
+    border: none;
+    background: none;
+    color: #5D7F9F;
+    font-size: 2vmax;
+    cursor: pointer;
+}
+
+#searchicon:hover{
+    color: #3C657F;
+}
+
+
+#results{
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 2.5vmax;
+    font-family: 'Abel', sans-serif;
+    text-align: center;
+    margin-bottom: 2vmax;
+}
+/*Filters*/
+.filter_form{
+    display: flow-root;
+    margin: 3vmax auto;
+    width: 80%;
+}
+.filter_form label{
+    font-size: 1.5vmax;
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    padding-right: 1vmax;
+}
+
+
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+    display: none;
+}
+
+select:focus{
+    outline: none;
+}
+
+.amount_filter{/*Div*/
+    display: inline;
+    position: relative;
+    float: left;
+}
+.amount_filter:after {
+    content: '\f0d7';
+    font: normal normal normal 17px/1 FontAwesome;
+    color: #5d7f9f;
+    right: 11px;
+    top: 6px;
+    height: 34px;
+    padding: 0.08vmax 0px 0px 8px;
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.4vmax;
+}
+
+
+#posts_per_page{/*Select*/
+    border: 2px solid #5d7f9f;
+    border-radius: 1vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.4vmax;
+    color: #5d7f9f;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add some styling */
+    max-width: 320px;
+    float: right;
+    padding: 0px 30px 0px 8px;
+    background-color: #ffffff;
+    background-image: none;
+    -ms-word-break: normal;
+    word-break: normal;
+    cursor: pointer;
+}
+
+
+
+
+.function_filter{/*Div*/
+    display: inline;
+    position: relative;
+    float: right;
+}
+.function_filter:after {
+    content: '\f0d7';
+    font: normal normal normal 17px/1 FontAwesome;
+    color: #5d7f9f;
+    right: 11px;
+    top: 6px;
+    height: 34px;
+    padding: 0.08vmax 0px 0px 8px;
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.4vmax;
+}
+
+#beroep_filter{/*Select*/
+    border: 2px solid #5d7f9f;
+    border-radius: 1vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.4vmax;
+    color: #5d7f9f;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add some styling */
+
+    max-width: 320px;
+    float: right;
+    padding: 0px 30px 0px 8px;
+    background-color: #ffffff;
+    background-image: none;
+    -ms-word-break: normal;
+    word-break: normal;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 575px) {
+    .function_filter{
+        float: left;
+    }
+}
+
+
+
+
+/*Pagination*/
 #page-nav{
     display: flex;
     width: 30%;
@@ -499,6 +662,23 @@ button:active{
     text-align: center;
     margin: auto;
 }
+
+.single-title{
+    text-align: center;
+}
+.go-back{
+    display: inline-block;
+    float: left;
+}
+#pagetitle{
+    display: inline-block;
+}
+
+
+
+
+
+
 
 
 /*Optional Media Query*/

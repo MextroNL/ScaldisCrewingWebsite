@@ -9,30 +9,34 @@
 <?php get_header(); ?>
     <div class="container">
 
-        <form name="search" class="search_input" method="post" action="#pagetitle">
+        <form name="search" class="search_input" method="post" action="<?php the_permalink();?>#pagetitle">
             <!--Searchbar-->
-            <input onchange="document.search.submit()" name="search" placeholder="Zoek naar vacatures" <?php if(isset($_REQUEST['search'])){echo 'value="' . $_REQUEST['search'] . '"';}?> id="search_posts">
+            <input onchange="document.filters.submit()" name="search" placeholder="Zoek naar vacatures" <?php if(isset($_REQUEST['search'])){echo 'value="' . $_REQUEST['search'] . '"';}?> id="search_posts">
             <button type="submit" name="submit" id="searchicon">
                 <i class="fas fa-search"></i>
             </button>
         </form>
-        <form name="filters" class="posts_per_page_form" method="get" action="<?php the_permalink();?>/#pagetitle">
+        <form name="filters" class="filter_form" method="get" action="<?php the_permalink();?>/#pagetitle">
         <!--Post per page-->
-            <label for="posts_per_page">Vacatures per pagina</label>
-            <select onchange="document.filters.submit()" name="posts_per_page" id="posts_per_page">
-                <option value="4" <?php selected(4,$_REQUEST['posts_per_page']);?>>4</option>
-                <option value="8" <?php selected(8,$_REQUEST['posts_per_page']);?>>8</option>
-                <option value="16" <?php selected(16,$_REQUEST['posts_per_page']);?>>16</option>
-                <option value="-1" <?php selected(-1,$_REQUEST['posts_per_page']);?>>Alle</option>
-            </select>
+            <div class="amount_filter">
+                <label class="wrap" for="posts_per_page" id="amountLabel">Vacatures per pagina</label>
+                <select onchange="document.filters.submit()" name="posts_per_page" id="posts_per_page">
+                    <option value="4" <?php selected(4,$_REQUEST['posts_per_page']);?>>4</option>
+                    <option value="8" <?php selected(8,$_REQUEST['posts_per_page']);?>>8</option>
+                    <option value="16" <?php selected(16,$_REQUEST['posts_per_page']);?>>16</option>
+                    <option value="-1" <?php selected(-1,$_REQUEST['posts_per_page']);if( isset($_REQUEST['search'])) {echo 'selected="selected"';}?>>Alle</option>
+                </select>
+            </div>
         <!--Beroep Filter-->
-            <label for="beroep_filter">Functie</label>
-            <select onchange="document.filters.submit()" name="beroep_filter" id="beroep_filter">
-                <option value="-1" <?php selected(-1,$_REQUEST['beroep_filter']);?>>Alle</option>
-                <option value="scheepsjongen" <?php selected('scheepsjongen',$_REQUEST['beroep_filter']);?>>Scheepsjongen</option>
-                <option value="matroos" <?php selected('matroos',$_REQUEST['beroep_filter']);?>>Matroos</option>
-                <option value="kapitein" <?php selected('kapitein',$_REQUEST['beroep_filter']);?>>Kapitein</option>
-            </select>
+            <div class="function_filter">
+                <label class="wrap" for="beroep_filter" id="functionLabel">Functie</label>
+                <select onchange="document.filters.submit()" name="beroep_filter" id="beroep_filter">
+                    <option value="-1" <?php selected(-1,$_REQUEST['beroep_filter']);if( isset($_REQUEST['search'])) {echo 'selected="selected"';}?>>Alle</option>
+                    <option value="scheepsjongen" <?php selected('scheepsjongen',$_REQUEST['beroep_filter']);?>>Scheepsjongen</option>
+                    <option value="matroos" <?php selected('matroos',$_REQUEST['beroep_filter']);?>>Matroos</option>
+                    <option value="kapitein" <?php selected('kapitein',$_REQUEST['beroep_filter']);?>>Kapitein</option>
+                </select>
+            </div>
         </form>
 
 
@@ -72,6 +76,9 @@
         if( isset($_REQUEST['beroep_filter'] )) {
             $beroep_filter = $_REQUEST['beroep_filter'];
         }
+        elseif( isset($_REQUEST['search'])){
+            $beroep_filter = -1; // Search Results
+        }
         else {
             $beroep_filter = 4; // default value
         }
@@ -80,6 +87,7 @@
         ?>
 
 <!--Loop-->
+
         <?php
 
         // Define custom query parameters
@@ -105,7 +113,7 @@
         if ( $custom_query->have_posts() ) :
             $totalPosts = $custom_query->found_posts; //Shows Total Posts
             if(!empty($_REQUEST['search'])){
-                echo 'Er zijn ' . $totalPosts . ' zoekresultaten gevonden voor: "' . $nospace . '".';
+                echo '<h2 id="results">Er zijn ' . $totalPosts . ' zoekresultaten gevonden voor: "' . $nospace . '".</h2>';
             }
 
         while ( $custom_query->have_posts() ) :
@@ -113,7 +121,7 @@
             <div class="post-block" id="post-<?php the_ID(); ?>">
                 <div class="col-lg-12">
                     <!-- Title -->
-                    <a href="<?php the_permalink(); ?>"> <h2 class="post-title"><?php the_title(); ?></h2></a>
+                    <a href="<?php the_permalink(); ?>"> <h3 class="post-title"><?php the_title(); ?></h3></a>
                     <!-- Subtitle -->
                     <h5 class="post-subtitle"><?php echo get_the_date(); ?></h5>
                     <!-- Content -->
@@ -125,7 +133,7 @@
         endwhile;
             $totalPosts = $custom_query->found_posts; //Shows Total Posts
         else:
-            echo 'Geen zoekresultaten gevonden voor: "' . $nospace . '"';
+            echo '<h2 id="results">Geen zoekresultaten gevonden voor: "' . $nospace . '"</h2>';
 
 
         endif;
