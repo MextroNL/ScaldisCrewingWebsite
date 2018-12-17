@@ -1,3 +1,7 @@
+<?php
+//    global $wp_session;
+//    $wp_session['PostperPage'] = $_REQUEST['db_posts_per_page'];
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,7 +25,7 @@
     // Fix menu overlap
     if ( is_admin_bar_showing() ) echo '<div style="min-height: 32px;"></div>';
     ?>
-
+<div class="page-wrapper">
     <!--Center Logo Start-->
     <div class="logo-wrapper">
         <!--Image-->
@@ -32,53 +36,26 @@
     <!--Navigation Start-->
     <nav class="navbar fixed-top navbar-expand-sm navbar">
         <!--Collapse Button-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-expanded="false">
-                <span class="hamburger-icon fas fa-bars"></span>
-            </button>
-        <!--Collapse Container-->
-            <div class="collapse navbar-collapse main-nav" id="collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-expanded="false">
+            <span class="hamburger-icon fas fa-bars"></span>
+        </button>
             <!--Main Menu-->
-                <ul class="navbar-nav nav-fill w-100">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Over</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="#">Scaldis Crewing</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Voorwaarden</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Vacatures</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Aflossers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Werkgevers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
+            <?php
+            wp_nav_menu( array(
+                'theme_location'    => 'main-menu',
+                'depth'             => 2,
+                'container'         => 'div',
+                'container_class'   => 'collapse navbar-collapse main-nav',
+                'container_id'      => 'collapsibleNavbar',
+                'menu_class'        => 'navbar-nav nav-fill w-100',
+                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                'walker'            => new WP_Bootstrap_Navwalker(),
+            ) );
+            ?>
+
             <!--Main Menu End-->
-            </div>
-        <!--Collapse Container End-->
     </nav>
     <!--Navigation End-->
-
-<!--                    <div class="main-nav">-->
-<!--                    --><?php
-//                    wp_nav_menu( array(
-//                        'theme_location' => 'main-menu',
-//                        'container'      => 'ul',
-//                        'menu_class'     => 'navbar-nav nav-fill w-100',
-//                    ) );
-//                    ?>
-<!--                    </div>-->
-
-
 
     <!--Header Image-->
     <div class="header">
