@@ -7,15 +7,29 @@
 ?>
 
 <?php get_header(); ?>
-
+    <h1 class="pagetitle"><?php the_title(); ?></h1>
     <div class="container">
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
-                <div class="block1content"><?php the_content();?></div>
-            <?php endwhile;
+            <?php
+                if ( have_posts() ) :
+                    while ( have_posts() ) : the_post();
+                //Page Content
+                ?>
+                    <div class="block1content">
+                        <?php the_content();?>
+                    </div>
+            <?php
+                    endwhile;
             else:?>
-                <p>Sorry, no posts matched your criteria.</p>
+                <h2 id="results">Er is nog geen inhoud op deze pagina.</h2>
             <?php endif; ?>
     </div>
+
+<?php
+$content = get_the_content();
+if (strlen($content) < 240) {
+    echo "<style>@media screen and (max-width: 800px){.block1content{padding-bottom:20vmax}}</style>";
+}
+?>
 
 
 

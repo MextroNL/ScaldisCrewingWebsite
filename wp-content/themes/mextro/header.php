@@ -25,7 +25,7 @@
     // Fix menu overlap
     if ( is_admin_bar_showing() ) echo '<div style="min-height: 32px;"></div>';
     ?>
-
+<div class="page-wrapper">
     <!--Center Logo Start-->
     <div class="logo-wrapper">
         <!--Image-->
@@ -62,4 +62,3 @@
         <img id="headerimg" src="<?php header_image(); ?>" alt="headerimg" />
     </div>
     <!--Header Image End-->
-<!--    <h1 class="pagetitle" id="pagetitle">--><?php //the_title(); ?><!--</h1>-->

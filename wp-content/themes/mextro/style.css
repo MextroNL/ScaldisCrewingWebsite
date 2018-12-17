@@ -23,6 +23,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 html{
     overflow: overlay;
+    height: 100%;
 }
 
 body{
@@ -32,7 +33,11 @@ body{
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
+}
+
+*:focus{
+    outline: none;
 }
 
 /*Scrollbar*/
@@ -147,7 +152,7 @@ button:active{
     transform: translateX(-50%);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 575px) {
     .dropdown-menu{
         left: 0!important;
         transform: none!important;
@@ -412,11 +417,16 @@ button:active{
 /*-------------------------------------------------------------------------------------------*/
 /*Footer Styling*/
 .footer-block{
-    height: 10%;
+    height: auto;
     background-color: #5D7F9F;
     margin: auto;
     padding: 0 0 1vmax 0;
 
+
+}
+
+.footer-widget-wrapper{
+    display: flex;
 }
 .footer-title{
     font-family: 'Raleway', sans-serif;;
@@ -471,6 +481,16 @@ button:active{
     opacity: 1;
 }
 
+/*Footer Bottom Whitespace*/
+
+@media (orientation: portrait){
+    .footer-block{
+        /*bottom: 0;*/
+        /*position: absolute;*/
+    }
+}
+
+
 /*Post Page (Vacature)*/
 
 /*Post Filters*/
@@ -484,6 +504,7 @@ button:active{
     border: 3px solid #5D7F9F;
     border-radius: 20vmax;
 }
+
 #search_posts{/*Input*/
     display: block;
     border: none;
@@ -528,7 +549,7 @@ button:active{
 }
 /*Filters*/
 .filter_form{
-    display: flow-root;
+    display: table;
     margin: 3vmax auto;
     width: 80%;
 }
@@ -666,15 +687,297 @@ select:focus{
 .single-title{
     text-align: center;
 }
+
+.singletitle{
+    text-align: center;
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 2.5vmax;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    padding-right: 10vmax;
+    margin: 0;
+}
+
 .go-back{
     display: inline-block;
     float: left;
+    width: 10vmax;
+    background-color: #5d7f9f;
+    padding: 0.5vmax;
+    font-family: 'Abel', sans-serif;
+    font-weight: 400;
+    font-size: 1.5vmax;
+    line-height: 2vmax;
+    border-radius: 1vmax;
+    cursor: pointer;
+}
+
+
+.go-back:hover{
+    background-color: #3C657F;
+}
+
+.go-back a:hover{
+    text-decoration: none;
+}
+
+.go-back i{
+    color: #fff;
+    font-size: 1.5vmax;
+}
+.terug{
+    color: #fff;
 }
 #pagetitle{
     display: inline-block;
+
+}
+.single-subtitle{
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;;
+    font-weight: 300;
+    font-size: 1.5vmax;
+}
+
+.single-content{
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;;
+    font-weight: 300;
+    font-size: 1.2vmax;
+    width: 100%;
+    display: inline-block;
+    padding-top: 2vmax;
+}
+
+/*Aflossers Pagina*/
+.profiles{
+    width: 90%;
+    margin: auto;
+    display: table;
+}
+
+.profile-wrapper{
+    height: 6vmax;
+    width: 6vmax;
+    background-color: #5D7F9F;
+    border-radius: 50%;
+    display: inline-block;
+    color: #fff;
+    font-size: 4vmax;
+    text-align: center;
+    line-height: 5.6vmax;
+    cursor: pointer;
+}
+
+.profile-block{
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 2vmax;
+}
+
+.profile-icon{
+    font-size: 3vmax;
+    text-align: center;
 }
 
 
+.profile-image img{
+    height: 6vmax;
+    width: 6vmax;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-image{
+    height: 7vmax;
+}
+
+
+.profile-title{
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;;
+    font-weight: 700;
+    font-size: 1vmax;
+    text-align: center;
+    padding-top: 0.5vmax;
+    display: grid;
+}
+
+/*Hovers*/
+.profile-block:hover .profile-title{
+    text-decoration: underline;
+    transition: .1s ease;
+    position: relative;
+}
+
+.profile-block:hover img{
+    height: 7vmax;
+    width: 7vmax;
+    transition: .1s ease;
+    position: relative;
+}
+
+.profile-block:hover .profile-wrapper{
+    height: 7vmax;
+    width: 7vmax;
+    transition: .1s ease;
+    position: relative;
+    line-height: 7.3vmax;
+}
+
+.profile-block:hover .profile-icon{
+    font-size: 4vmax;
+    transition: .1s ease;
+    position: relative;
+}
+
+/*Contact Formulier*/
+.wpcf7{
+    width: 50%;
+    margin: auto;
+    margin-top: 6%;
+}
+.wpcf7 input[type="text"]{
+    font-size: 1.2vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #5D7F9F;
+    width: 100%;
+    margin: auto;
+    padding: 0.5vmax 1vmax 0.5vmax 1.5vmax;
+    border: 3px solid #5D7F9F;
+    border-radius: 20vmax;
+    padding-left: 3vmax;
+}
+
+.wpcf7 input[type="email"]{
+    font-size: 1.2vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #5D7F9F;
+    width: 100%;
+    margin: auto;
+    padding: 0.5vmax 1vmax 0.5vmax 1.5vmax;
+    border: 3px solid #5D7F9F;
+    border-radius: 20vmax;
+    padding-left: 3vmax;
+}
+
+.wpcf7 textarea{
+    font-size: 1.2vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #5D7F9F;
+    width: 100%;
+    resize: none;
+    margin: auto;
+    padding: 0.5vmax 1vmax 0.5vmax 1.5vmax;
+    border: 3px solid #5D7F9F;
+    border-radius: 2vmax;
+    overflow: hidden;
+    padding-left: 3vmax;
+}
+
+.verzend-knop{
+    padding-left: 2.2vmax;
+    margin: auto;
+    width: 25%;
+    height: 3vmax;
+    border: none;
+    background-color: #5d7f9f;
+    border-radius: 10vmax;
+    cursor: pointer;
+}
+
+.verzend-knop:hover{
+    background-color: #fff;
+    border: 3px solid #5d7f9f;
+
+}
+
+.verzend-knop:hover input[type="submit"]{
+    color: #5d7f9f;
+    font-size: 1.2vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    line-height: 2.8vmax;
+    margin: -3px;
+}
+
+.verzend-knop:hover span{
+    color: #5d7f9f!important;
+    margin: -3px;
+}
+
+.wpcf7 input[type="submit"]{
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 1.2vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    line-height: 2.8vmax;
+    cursor: pointer;
+}
+
+.wpcf7 input::placeholder{
+    font-size: 1.2vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #5D7F9F;
+    opacity: 0.7;
+}
+
+.wpcf7 textarea::placeholder{
+    font-size: 1.2vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #5D7F9F;
+    opacity: 0.7;
+}
+
+
+
+
+
+/*test*/
+.wpcf7 p{
+    position: relative;
+}
+.wpcf7 p .fas{
+    position: absolute;
+    color: #5D7F9F;
+    z-index: 100;
+    font-size: 1.5vmax;
+    top: 22%;
+    left: 3%;
+}
+.wpcf7 p .fa-pen{
+    top: 4%;
+}
+
+.fa-paper-plane{
+    color: #fff!important;
+    left: 7%!important;
+}
+
+
+
+
+/*Phone*/
+@media screen and (max-width: 575px) {
+    .go-back{
+        float: none;
+        display: block;
+        margin: 1vmax auto 1vmax auto;
+    }
+    .singletitle{
+        padding-right: unset;
+    }
+}
 
 
 
@@ -694,6 +997,5 @@ select:focus{
 
     }
 }
-
 
 

@@ -14,13 +14,25 @@ add_theme_support( 'custom-header', $args );
 add_theme_support( 'custom-logo' );
 
 //Admin Bar (Development)
-show_admin_bar(true);
+function adminBar(){
+    if ( is_user_logged_in() ) {
+        show_admin_bar(true);
+    } else {
+        show_admin_bar(false);
+    }
+}
+add_action('init', 'adminBar');
+
+
 
 //Style Prepare
 wp_enqueue_style('style', get_stylesheet_uri());
 
 //Title
 add_theme_support( 'title-tag' );
+
+//Post Thumbnail
+add_theme_support( 'post-thumbnails' );
 
 //Register Navbar
 function register_menus() {

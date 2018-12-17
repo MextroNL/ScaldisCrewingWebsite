@@ -7,11 +7,12 @@
 ?>
 
 <?php get_header(); ?>
+    <h1 class="pagetitle"><?php the_title(); ?></h1>
     <div class="container">
 
         <form name="search" class="search_input" method="post" action="<?php the_permalink();?>#pagetitle">
             <!--Searchbar-->
-            <input onchange="document.filters.submit()" name="search" placeholder="Zoek naar vacatures" <?php if(isset($_REQUEST['search'])){echo 'value="' . $_REQUEST['search'] . '"';}?> id="search_posts">
+            <input type="search" onchange="document.filters.submit()" name="search" placeholder="Zoek naar vacatures" <?php if(isset($_REQUEST['search'])){echo 'value="' . $_REQUEST['search'] . '"';}?> id="search_posts">
             <button type="submit" name="submit" id="searchicon">
                 <i class="fas fa-search"></i>
             </button>
@@ -112,28 +113,33 @@
         // Output custom query loop
         if ( $custom_query->have_posts() ) :
             $totalPosts = $custom_query->found_posts; //Shows Total Posts
-            if(!empty($_REQUEST['search'])){
+            if(!empty($_REQUEST['search']) && $totalPosts > 1){
                 echo '<h2 id="results">Er zijn ' . $totalPosts . ' zoekresultaten gevonden voor: "' . $nospace . '".</h2>';
             }
+            elseif(!empty($_REQUEST['search']) && $totalPosts == 1){
+                echo '<h2 id="results">Er is ' . $totalPosts . ' zoekresultaat gevonden voor: "' . $nospace . '".</h2>';
+            }
 
-        while ( $custom_query->have_posts() ) :
-        $custom_query->the_post();?>
-            <div class="post-block" id="post-<?php the_ID(); ?>">
-                <div class="col-lg-12">
-                    <!-- Title -->
-                    <a href="<?php the_permalink(); ?>"> <h3 class="post-title"><?php the_title(); ?></h3></a>
-                    <!-- Subtitle -->
-                    <h5 class="post-subtitle"><?php echo get_the_date(); ?></h5>
-                    <!-- Content -->
-                    <div class="post-content"><?php echo wp_trim_words( get_the_content(), 36, '...' );?></div>
-                    <a href="<?php the_permalink(); ?>#post-scroll" class="perma-button">Bekijk Vacature</a>
+            while ( $custom_query->have_posts() ) :
+            $custom_query->the_post();?>
+                <div class="post-block" id="post-<?php the_ID(); ?>">
+                    <div class="col-lg-12">
+                        <!-- Title -->
+                        <a href="<?php the_permalink(); ?>"> <h3 class="post-title"><?php the_title(); ?></h3></a>
+                        <!-- Subtitle -->
+                        <h5 class="post-subtitle"><?php echo get_the_date(); ?></h5>
+                        <!-- Content -->
+                        <div class="post-content"><?php echo wp_trim_words( get_the_content(), 36, '...' );?></div>
+                        <a href="<?php the_permalink(); ?>#post-scroll" class="perma-button">Bekijk Vacature</a>
+                    </div>
                 </div>
-            </div>
-        <?php
-        endwhile;
+            <?php
+            endwhile;
             $totalPosts = $custom_query->found_posts; //Shows Total Posts
-        else:
+        elseif (!empty($_REQUEST['search']) && $totalPosts == 0):
             echo '<h2 id="results">Geen zoekresultaten gevonden voor: "' . $nospace . '"</h2>';
+        else:
+            echo '<h2 id="results">Er zijn op dit moment geen beschikbare vacatures.</h2><style>@media screen and (max-width: 800px){.container{padding-bottom:20vmax}}</style>';
 
 
         endif;
@@ -152,6 +158,8 @@
         // Reset main query object
         $wp_query = NULL;
         $wp_query = $temp_query;
+
+
 
 
 
