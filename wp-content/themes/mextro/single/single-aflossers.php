@@ -33,6 +33,7 @@
                         <?php the_content();?>
                     </div>
                     <!-- Profile Picture -->
+                    <div class="bio-expand">
                         <?php
                             if ( has_post_thumbnail() ) {
                         ?>
@@ -52,65 +53,65 @@
                                         </span>
                                     </div>
                         <?php } ?>
-                </div>
+
+                    <!-- Button -->
+                    <span id="awardButton"><i class="fas fa-award"></i></span>
+                    <span id="awardText">Certificaten</span>
 
 
-<!-- Lightbox Test -->
+                    <!-- Lightbox Test -->
 
 
-            <!-- Looks like box style -->
-            <style type="text/css">
-                .contentInPopup { padding: 2em; max-width: 40em; }
-            </style>
+                    <!-- Looks like box style -->
 
-            <!-- Button -->
-            <span id="click"><i class="fas fa-award"></i></span>
+                    <!-- Popup -->
+                    <div id="awardBox" style="display:none;">
+                        <div class="awardBox">
+                            <div class="awardHead">
+                                <h3 class="awardTitle">Certificaten</h3>
+                                <h3 class="awardName"><?php the_title(); ?></h3>
+<!--                                <button type="button" title="Close" class="slbCloseBtn awardClose">×</button>-->
+<!--                                <span title="Close" class="slbCloseBtn awardClose"><i class="fas fa-times"></i></span>-->
+                            </div>
+                            <div class="awards">
 
-            <!-- Popup -->
-            <div id="awardBox" style="display:none;">
-                <div class="contentInPopup">
+                                <div class="awardBlock1">
+                                    <h4 class="">Vaarbewijzen</h4>
+                                    <?php awardsLoop("vaarbewijzen"); ?>
+                                </div>
 
-                    <h3 class="awardTitle">Certificaten</h3>
-                    <h3 class="awardName"><?php the_title(); ?></h3>
+                                <div class="awardBlock2">
+                                    <h4 class="">Patenten</h4>
+                                    <?php awardsLoop("patenten"); ?>
+                                </div>
 
-                    <div class="awards">
+                                <div class="awardBlock3">
+                                    <h4 class="">Zwemdiplomas</h4>
+                                    <?php awardsLoop('zwemdiplomas'); ?>
+                                </div>
 
-                        <div class="awardBlock1">
-                            <h4 class="">Vaarbewijzen</h4>
-                            <?php the_field('vaarbewijzen'); ?>
+                            </div>
                         </div>
-
-                        <div class="awardBlock2">
-                            <h4 class="">Patenten</h4>
-                            <?php the_field('patenten'); ?>
-                        </div>
-
-                        <div class="awardBlock3">
-                            <h4 class="">Zwemdiplomas</h4>
-                            <?php the_field('zwemdiplomas'); ?>
-                        </div>
-
                     </div>
-                    <button type="button" title="Close" class="slbCloseBtn awardClose">×Xx</button>
-                </div>
-            </div>
-            <!-- Where the magic happens -->
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#click').click(function() {
-                        $.SimpleLightbox.open({
-                            content : $('#awardBox').html(),
-                            elementClass : 'slbContentEl'
+                    <!-- Where the magic happens -->
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#awardButton').click(function() {
+                                $.SimpleLightbox.open({
+                                    content : $('#awardBox').html(),
+                                    elementClass : 'slbContentEl'
+                                });
+                            });
                         });
-                    });
-                });
 
-            </script>
-<!-- Lightbox Test -->
-
+                    </script>
+                    <!-- Lightbox Test -->
+                    </div>
+                </div>
 
 
         </div>
+
 
 
         <?php endwhile; ?>

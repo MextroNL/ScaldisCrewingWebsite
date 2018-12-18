@@ -23,6 +23,26 @@ function adminBar(){
 }
 add_action('init', 'adminBar');
 
+//Custom Post Fields Loop
+function awardsLoop($fieldName = ''){
+    $fieldGet = $fieldName;
+    $values = get_field($fieldGet);
+
+    if($values) {
+        echo '<ul>';
+
+        foreach($values as $value)
+        {
+            echo '<li>' . $value . '</li>';
+        }
+
+        echo '</ul>';
+    }
+
+    return;
+}
+
+
 //Style Prepare
 wp_enqueue_style('style', get_stylesheet_uri());
 

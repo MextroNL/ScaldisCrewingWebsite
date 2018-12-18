@@ -879,6 +879,12 @@ select:focus{
     }
 }
 
+.bio-expand{
+    display: block;
+    float: right;
+    text-align: center;
+}
+
 .bio-wrapper{
     height: 13vmax;
     width: 13vmax;
@@ -899,8 +905,7 @@ select:focus{
 }
 
 .bio-image{
-    display: inline-block;
-    float: right;
+
 }
 
 
@@ -911,36 +916,85 @@ select:focus{
 }
 
 /*Certificaten*/
+.awardBox{
+    min-width: 50vmax;
+}
+#awardButton{
+    font-size: 3vmax;
+    color: #5d7f9f;
+    cursor: pointer;
+}
+#awardText{
+    display: block;
+    font-size: 1vmax;
+    color: #5d7f9f;
+    cursor: pointer;
+}
+
+.awardHead{
+    background-color: #5d7f9f;
+    padding: 0.5vmax 0 0.5vmax 0;
+}
+
 .awardTitle{
-    color: #5D7F9F;
-    font-size: 1.5vmax;
+    color: #fff;
+    font-size: 2vmax;
     font-family: 'Abel', sans-serif;
     text-align: center;
+
 }
 .awardName{
-    color: #5D7F9F;
-    font-size: 1.5vmax;
+    color: #fff;
+    font-size: 1.7vmax;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     text-align: center;
+
 }
 
 .awards{
+    display: inline-flex;
+}
+
+.awards h4{
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+.awards ul{
+    list-style: none;
+    padding: 0;
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
 
 }
 .awardBlock1{
-    color: #5D7F9F;
+
+    margin: 1vmax;
 }
 .awardBlock2{
 
+    margin: 1vmax;
 }
 .awardBlock3{
 
+    margin: 1vmax;
 }
 
 .awardClose{
-    
+    display: inline-block!important;
 }
+
+.slbImageWrap + .slbCloseBtn{
+    display: block!important;
+}
+
+.slbContentOuter{
+    padding: 0!important;
+}
+
 
 /*-------------------------------------------------------------------------------------------*/
 /*Contact Formulier*/
