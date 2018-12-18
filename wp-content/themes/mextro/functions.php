@@ -23,8 +23,6 @@ function adminBar(){
 }
 add_action('init', 'adminBar');
 
-
-
 //Style Prepare
 wp_enqueue_style('style', get_stylesheet_uri());
 

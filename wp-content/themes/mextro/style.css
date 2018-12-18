@@ -36,6 +36,10 @@ body{
     /*overflow-x: hidden;*/
 }
 
+.wp-admin{
+    background-color: rgba(93, 127, 159, 0.54);
+}
+
 *:focus{
     outline: none;
 }
@@ -490,11 +494,11 @@ button:active{
     }
 }
 
-
-/*Post Page (Vacature)*/
+/*-------------------------------------------------------------------------------------------*/
+/*Post Page (Vacatures)*/
 
 /*Post Filters*/
-/*Searchbar*/
+    /*Searchbar*/
 .search_input{/*Form*/
     display:flex;
     flex-direction:row;
@@ -547,7 +551,7 @@ button:active{
     text-align: center;
     margin-bottom: 2vmax;
 }
-/*Filters*/
+    /*Filters*/
 .filter_form{
     display: table;
     margin: 3vmax auto;
@@ -562,7 +566,7 @@ button:active{
 }
 
 
-/* IE11 hide native button (thanks Matt!) */
+/* IE11 hide native button */
 select::-ms-expand {
     display: none;
 }
@@ -589,7 +593,6 @@ select:focus{
     font-size: 1.4vmax;
 }
 
-
 #posts_per_page{/*Select*/
     border: 2px solid #5d7f9f;
     border-radius: 1vmax;
@@ -610,9 +613,6 @@ select:focus{
     word-break: normal;
     cursor: pointer;
 }
-
-
-
 
 .function_filter{/*Div*/
     display: inline;
@@ -664,7 +664,7 @@ select:focus{
 
 
 
-/*Pagination*/
+    /*Pagination*/
 #page-nav{
     display: flex;
     width: 30%;
@@ -684,77 +684,19 @@ select:focus{
     margin: auto;
 }
 
-.single-title{
-    text-align: center;
-}
-
-.singletitle{
-    text-align: center;
-    text-decoration: none;
-    color: #5D7F9F;
-    font-size: 2.5vmax;
-    font-weight: 700;
-    font-family: 'Raleway', sans-serif;
-    padding-right: 10vmax;
-    margin: 0;
-}
-
-.go-back{
-    display: inline-block;
-    float: left;
-    width: 10vmax;
-    background-color: #5d7f9f;
-    padding: 0.5vmax;
-    font-family: 'Abel', sans-serif;
-    font-weight: 400;
-    font-size: 1.5vmax;
-    line-height: 2vmax;
-    border-radius: 1vmax;
-    cursor: pointer;
-}
-
-
-.go-back:hover{
-    background-color: #3C657F;
-}
-
-.go-back a:hover{
-    text-decoration: none;
-}
-
-.go-back i{
-    color: #fff;
-    font-size: 1.5vmax;
-}
-.terug{
-    color: #fff;
-}
-#pagetitle{
-    display: inline-block;
-
-}
-.single-subtitle{
-    color: #5D7F9F;
-    font-family: 'Raleway', sans-serif;;
-    font-weight: 300;
-    font-size: 1.5vmax;
-}
-
-.single-content{
-    color: #5D7F9F;
-    font-family: 'Raleway', sans-serif;;
-    font-weight: 300;
-    font-size: 1.2vmax;
-    width: 100%;
-    display: inline-block;
-    padding-top: 2vmax;
-}
-
-/*Aflossers Pagina*/
+/*-------------------------------------------------------------------------------------------*/
+/*Post Page (Aflossers)*/
 .profiles{
     width: 90%;
     margin: auto;
     display: table;
+}
+
+.profile-block{
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 2vmax;
 }
 
 .profile-wrapper{
@@ -770,12 +712,6 @@ select:focus{
     cursor: pointer;
 }
 
-.profile-block{
-    width: 20%;
-    display: inline-block;
-    text-align: center;
-    margin-top: 2vmax;
-}
 
 .profile-icon{
     font-size: 3vmax;
@@ -834,6 +770,179 @@ select:focus{
     position: relative;
 }
 
+/*-------------------------------------------------------------------------------------------*/
+/*Single*/
+
+.single-title{
+    text-align: center;
+}
+
+.singletitle{
+    text-align: center;
+    text-decoration: none;
+    color: #5D7F9F;
+    font-size: 2.5vmax;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    padding-right: 10vmax;
+    margin: 0;
+}
+
+.go-back{
+    display: inline-block;
+    float: left;
+    width: 10vmax;
+    background-color: #5d7f9f;
+    padding: 0.5vmax;
+    font-family: 'Abel', sans-serif;
+    font-weight: 400;
+    font-size: 1.5vmax;
+    line-height: 2vmax;
+    border-radius: 1vmax;
+    cursor: pointer;
+}
+
+
+.go-back:hover{
+    background-color: #3C657F;
+}
+
+.go-back a:hover{
+    text-decoration: none;
+}
+
+.go-back i{
+    color: #fff;
+    font-size: 1.5vmax;
+}
+.terug{
+    color: #fff;
+}
+#pagetitle{
+    display: inline-block;
+
+}
+
+/*Single Phone*/
+@media screen and (max-width: 575px) {
+    .go-back{
+        float: none;
+        display: block;
+        margin: 1vmax auto 1vmax auto;
+    }
+    .singletitle{
+        padding-right: unset;
+    }
+}
+/*-------------------------------------------------------------------------------------------*/
+    /*Vacature Single*/
+.single-subtitle{
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;;
+    font-weight: 300;
+    font-size: 1.5vmax;
+}
+
+.single-content{
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;;
+    font-weight: 300;
+    font-size: 1.2vmax;
+    width: 100%;
+    display: inline-block;
+    padding-top: 2vmax;
+}
+/*-------------------------------------------------------------------------------------------*/
+    /*Aflosser Single*/
+
+.profile-bio{
+    margin: 3vmax 0 2vmax 0;
+}
+
+.profile-content{
+    color: #5D7F9F;
+    font-family: 'Raleway', sans-serif;;
+    font-weight: 300;
+    font-size: 1.2vmax;
+    width: 70%;
+    display: inline-block;
+    padding-top: 2vmax;
+}
+
+.custom-fields{
+    line-height: 0.5vmax;
+}
+
+@media screen and (max-width: 575px) {
+    .custom-fields{
+        text-align: center!important;
+    }
+}
+
+.bio-wrapper{
+    height: 13vmax;
+    width: 13vmax;
+    background-color: #5D7F9F;
+    border-radius: 50%;
+    display: inline-block;
+    color: #fff;
+    font-size: 4vmax;
+    text-align: center;
+    line-height: 13vmax;
+    float: right;
+}
+
+
+.bio-icon{
+    font-size: 7vmax;
+    text-align: center;
+}
+
+.bio-image{
+    display: inline-block;
+    float: right;
+}
+
+
+.bio-image img{
+    height: 13vmax;
+    width: 13vmax;
+    border-radius: 50%;
+}
+
+/*Certificaten*/
+.awardTitle{
+    color: #5D7F9F;
+    font-size: 1.5vmax;
+    font-family: 'Abel', sans-serif;
+    text-align: center;
+}
+.awardName{
+    color: #5D7F9F;
+    font-size: 1.5vmax;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.awards{
+
+}
+.awardBlock1{
+    color: #5D7F9F;
+}
+.awardBlock2{
+
+}
+.awardBlock3{
+
+}
+
+.awardClose{
+    
+}
+
+/*-------------------------------------------------------------------------------------------*/
 /*Contact Formulier*/
 .wpcf7{
     width: 50%;
@@ -939,11 +1048,7 @@ select:focus{
     opacity: 0.7;
 }
 
-
-
-
-
-/*test*/
+    /*Contact Icons*/
 .wpcf7 p{
     position: relative;
 }
@@ -964,20 +1069,10 @@ select:focus{
     left: 7%!important;
 }
 
+/*CSS END*/
 
 
 
-/*Phone*/
-@media screen and (max-width: 575px) {
-    .go-back{
-        float: none;
-        display: block;
-        margin: 1vmax auto 1vmax auto;
-    }
-    .singletitle{
-        padding-right: unset;
-    }
-}
 
 
 

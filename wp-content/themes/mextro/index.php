@@ -12,7 +12,9 @@
     <div class="container">
         <div class="block1">
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
-                <div class="block1content"><?php the_content();?></div>
+                <div class="block1content">
+                    <?php the_content();?>
+                </div>
                 <a href="/scaldis/over" class="perma-button">Lees meer</a>
             <?php endwhile;
             else:?>
@@ -41,8 +43,8 @@
         <div class="block3">
             <?php
                 $category_id = 3;
-                echo '<div class="cat-name">' . get_cat_name( $category_id ) . '</div>';
-                echo '<div class="cat-description">' . category_description( $category_id ) . '</div>';
+                echo '<h2 class="cat-name">' . get_cat_name( $category_id ) . '</h2>';
+                echo '<h3 class="cat-description">' . category_description( $category_id ) . '</h3>';
 
             $catquery = new WP_Query( 'cat='. $category_id . '&posts_per_page=2' );
 
